@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPI-CST-2324</title>
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/bn/b/b0/%E0%A6%B0%E0%A6%BE%E0%A6%9C%E0%A6%B6%E0%A6%BE%E0%A6%B9%E0%A7%80-%E0%A6%AA%E0%A6%B2%E0%A6%BF%E0%A6%9F%E0%A7%87%E0%A6%95%E0%A6%A8%E0%A6%BF%E0%A6%95-%E0%A6%87%E0%A6%A8%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A6%BF%E0%A6%9F%E0%A6%BF%E0%A6%89%E0%A6%9F.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+            color: #00ff40d7;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+            table-layout: fixed; /* Ensures all columns have a fixed width */
+        }
+
+        table, th, td {
+            border: 2px solid #ddd;
+            text-align: center;
+            padding: 8px; /* Reduce padding for more compact boxes */
+            word-wrap: break-word;
+        }
+
+        thead {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Set fixed widths for each column */
+        th, td {
+            width: 12.5%; /* Ensures each column takes up 12.5% of the total width */
+        }
+
+        td[colspan] {
+            width: auto; /* For colspan cells */
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #00aaff;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles for Small Devices */
+        @media (max-width: 768px) {
+            h1, h2 {
+                font-size: 22px;
+            }
+
+            table, th, td {
+                font-size: 14px;
+                padding: 6px; /* Further reduce padding for smaller screens */
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+
+        /* Stack table for phones (less than 480px wide) */
+        @media (max-width: 480px) {
+            h1, h2 {
+                font-size: 18px;
+            }
+
+            table, th, td {
+                font-size: 12px;
+                padding: 4px; /* Even smaller padding for phones */
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                display: none;
+            }
+
+            tr {
+                margin-bottom: 10px;
+            }
+
+            td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+                width: 100%;
+            }
+
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 10px;
+                font-weight: bold;
+                text-align: left;
+            }
+
+            td[colspan] {
+                width: 100%; /* Ensure colspan cells fill the width */
+            }
+        }
+    </style>
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>RAJSHAHI POLYTECHNIC INSTITUITE</h1>
+        <h2>CLASS ROUTINE</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <td>1:30 - 2:15</td>
+                    <td>2:15 - 3:00</td>
+                    <td>3:00 - 3:45</td>
+                    <td>3:45 - 4:30</td>
+                    <td>4:30 - 5:15</td>
+                    <td>5:15 - 6:00</td>
+                    <td>6:00 - 6:45</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Day">Sunday</td>
+                    <td data-label="1:30 - 2:15">Python Programming</td>
+                    <td data-label="2:15 - 3:00">Bangla-2</td>
+                    <td data-label="3:00 - 3:45">Basic Electronics</td>
+                    <td data-label="3:45 - 4:30">Chemistry</td>
+                    <td data-label="4:30 - 5:15" colspan="3">Math-2</td>
+                </tr>
+                <tr>
+                    <td data-label="Day">Monday</td>
+                    <td data-label="1:30 - 2:15" colspan="3">Graphics Design</td>
+                    <td data-label="3:45 - 4:30">English-2</td>
+                    <td data-label="4:30 - 5:15" colspan="3">Basic Electronics</td>
+                </tr>
+                <tr>
+                    <td data-label="Day">Tuesday</td>
+                    <td data-label="1:30 - 2:15" colspan="3">Python Programming</td>
+                    <td data-label="3:45 - 4:30">Bangla-2</td>
+                    <td data-label="4:30 - 5:15">Math-2</td>
+                    <td data-label="5:15 - 6:00">Basic Electronics</td>
+                    <td data-label="6:00 - 6:45">Chemistry</td>
+                </tr>
+                <tr>
+                    <td data-label="Day">Wednesday</td>
+                    <td data-label="1:30 - 2:15">Math-2</td>
+                    <td data-label="2:15 - 3:00">Chemistry</td>
+                    <td data-label="3:00 - 3:45">English-2</td>
+                    <td data-label="3:45 - 4:30">Python</td>
+                    <td data-label="4:30 - 5:15" colspan="3">Skill Development</td>
+                </tr>
+                <tr>
+                    <td data-label="Day">Thursday</td>
+                    <td data-label="1:30 - 2:15" colspan="3">Chemistry</td>
+                    <td data-label="3:45 - 4:30">Math-2</td>
+                    <td data-label="4:30 - 5:15" colspan="3">Graphics Design</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        © 2024 Developer: <a href="https://cybercop-404.github.io/" target="_blank">MD.NAHIDUL ISLAM</a>
+    </footer>
+</body>
+</html>
