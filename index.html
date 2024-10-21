@@ -38,13 +38,13 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 16px;
-            table-layout: fixed; /* Ensures all columns have a fixed width */
+            table-layout: fixed;
         }
 
         table, th, td {
             border: 2px solid #ddd;
             text-align: center;
-            padding: 8px; /* Reduce padding for more compact boxes */
+            padding: 8px;
             word-wrap: break-word;
         }
 
@@ -59,11 +59,11 @@
 
         /* Set fixed widths for each column */
         th, td {
-            width: 12.5%; /* Ensures each column takes up 12.5% of the total width */
+            width: 12.5%;
         }
 
         td[colspan] {
-            width: auto; /* For colspan cells */
+            width: auto;
         }
 
         /* Footer Styles */
@@ -83,7 +83,23 @@
             text-decoration: underline;
         }
 
-        /* Responsive Styles for Small Devices */
+        /* Button Styles */
+        .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background-color: #45a049;
+        }
+
         @media (max-width: 768px) {
             h1, h2 {
                 font-size: 22px;
@@ -91,7 +107,7 @@
 
             table, th, td {
                 font-size: 14px;
-                padding: 6px; /* Further reduce padding for smaller screens */
+                padding: 6px;
             }
 
             .container {
@@ -99,7 +115,6 @@
             }
         }
 
-        /* Stack table for phones (less than 480px wide) */
         @media (max-width: 480px) {
             h1, h2 {
                 font-size: 18px;
@@ -107,46 +122,25 @@
 
             table, th, td {
                 font-size: 12px;
-                padding: 4px; /* Even smaller padding for phones */
-            }
-
-            table, thead, tbody, th, td, tr {
-                display: block;
-            }
-
-            thead tr {
-                display: none;
-            }
-
-            tr {
-                margin-bottom: 10px;
-            }
-
-            td {
-                text-align: right;
-                padding-left: 50%;
-                position: relative;
-                width: 100%;
-            }
-
-            td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 0;
-                width: 50%;
-                padding-left: 10px;
-                font-weight: bold;
-                text-align: left;
-            }
-
-            td[colspan] {
-                width: 100%; /* Ensure colspan cells fill the width */
+                padding: 4px;
             }
         }
     </style>
+
+    <!-- Include the html2canvas library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
     <script>
-        // Disable right-click
-        document.addEventListener('contextmenu', event => event.preventDefault());
+        function downloadImage() {
+            html2canvas(document.querySelector(".container"), {
+                onrendered: function (canvas) {
+                    var link = document.createElement("a");
+                    link.download = 'class_routine.png';
+                    link.href = canvas.toDataURL("image/png");
+                    link.click();
+                }
+            });
+        }
     </script>
 </head>
 <body>
@@ -168,43 +162,44 @@
             </thead>
             <tbody>
                 <tr>
-                    <td data-label="Day">Sunday</td>
-                    <td data-label="1:30 - 2:15">Python Programming</td>
-                    <td data-label="2:15 - 3:00">Bangla-2</td>
-                    <td data-label="3:00 - 3:45">Basic Electronics</td>
-                    <td data-label="3:45 - 4:30">Chemistry</td>
-                    <td data-label="4:30 - 5:15" colspan="3">Math-2</td>
+                    <td>Sunday</td>
+                    <td>Python Programming</td>
+                    <td>Bangla-2</td>
+                    <td>Basic Electronics</td>
+                    <td>Chemistry</td>
+                    <td colspan="3">Math-2</td>
                 </tr>
                 <tr>
-                    <td data-label="Day">Monday</td>
-                    <td data-label="1:30 - 2:15" colspan="3">Graphics Design</td>
-                    <td data-label="3:45 - 4:30">English-2</td>
-                    <td data-label="4:30 - 5:15" colspan="3">Basic Electronics</td>
+                    <td>Monday</td>
+                    <td colspan="3">Graphics Design</td>
+                    <td>English-2</td>
+                    <td colspan="3">Basic Electronics</td>
                 </tr>
                 <tr>
-                    <td data-label="Day">Tuesday</td>
-                    <td data-label="1:30 - 2:15" colspan="3">Python Programming</td>
-                    <td data-label="3:45 - 4:30">Bangla-2</td>
-                    <td data-label="4:30 - 5:15">Math-2</td>
-                    <td data-label="5:15 - 6:00">Basic Electronics</td>
-                    <td data-label="6:00 - 6:45">Chemistry</td>
+                    <td>Tuesday</td>
+                    <td colspan="3">Python Programming</td>
+                    <td>Bangla-2</td>
+                    <td>Math-2</td>
+                    <td>Basic Electronics</td>
+                    <td>Chemistry</td>
                 </tr>
                 <tr>
-                    <td data-label="Day">Wednesday</td>
-                    <td data-label="1:30 - 2:15">Math-2</td>
-                    <td data-label="2:15 - 3:00">Chemistry</td>
-                    <td data-label="3:00 - 3:45">English-2</td>
-                    <td data-label="3:45 - 4:30">Python</td>
-                    <td data-label="4:30 - 5:15" colspan="3">Skill Development</td>
+                    <td>Wednesday</td>
+                    <td>Math-2</td>
+                    <td>Chemistry</td>
+                    <td>English-2</td>
+                    <td>Python</td>
+                    <td colspan="3">Skill Development</td>
                 </tr>
                 <tr>
-                    <td data-label="Day">Thursday</td>
-                    <td data-label="1:30 - 2:15" colspan="3">Chemistry</td>
-                    <td data-label="3:45 - 4:30">Math-2</td>
-                    <td data-label="4:30 - 5:15" colspan="3">Graphics Design</td>
+                    <td>Thursday</td>
+                    <td colspan="3">Chemistry</td>
+                    <td>Math-2</td>
+                    <td colspan="3">Graphics Design</td>
                 </tr>
             </tbody>
         </table>
+        <button class="download-btn" onclick="downloadImage()">Download as PNG</button>
     </div>
 
     <footer>
